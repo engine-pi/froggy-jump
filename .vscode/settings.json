@@ -1,0 +1,7 @@
+{
+  "java.debug.settings.onBuildFailureProceed": true,
+  "java.format.settings.url": "https://raw.githubusercontent.com/engine-pi/engine-pi/refs/heads/main/subprojects/build-tools/src/main/resources/eclipse-formatter.xml",
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "java.configuration.updateBuildConfiguration": "automatic"
+}
