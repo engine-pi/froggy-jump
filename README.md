@@ -1,3 +1,3 @@
-# Vorlage für ein Engine-Pi-Projekt
+# Froggy Jump
 
-Vorlage für ein Projekt mit dem Build-Tool Maven und der IDE Visual Studio Code
+Kleines Spiel inspiriert von Doodle Jump.
