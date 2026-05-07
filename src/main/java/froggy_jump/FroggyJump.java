@@ -52,6 +52,15 @@ public class FroggyJump extends Scene
                 add(platform);
             }
 
+            if (i > 3)
+            {
+                for (int j = 0; j < Random.range(3); j++)
+                {
+                    SpikeBall.create(Random.range() * (4 + j) * i,
+                        Random.range() * 4 + 0.5 + 5 * i,
+                        layer());
+                }
+            }
         }
     }
 
