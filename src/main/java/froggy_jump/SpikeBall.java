@@ -1,7 +1,7 @@
 package froggy_jump;
 
-import pi.actor.Image;
 import pi.Layer;
+import pi.actor.Image;
 import pi.event.CollisionEvent;
 import pi.event.CollisionListener;
 

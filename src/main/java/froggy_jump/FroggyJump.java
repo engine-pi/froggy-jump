@@ -21,7 +21,7 @@ public class FroggyJump extends Scene
         camera.focus(frog);
         camera.offset(new Vector(0, 4));
         makePlatforms(10);
-        makeMultiplePlatforms(40);
+        makePlatformsDeluxe(40);
     }
 
     private void makePlatforms(int count)
@@ -34,9 +34,9 @@ public class FroggyJump extends Scene
         }
     }
 
-    private void makeMultiplePlatforms(int count)
+    private void makePlatformsDeluxe(int countLevels)
     {
-        for (int i = 0; i < count; i++)
+        for (int i = 0; i < countLevels; i++)
         {
             int numPlatforms = Random.range(2) + 1;
             for (int j = 0; j < numPlatforms; j++)
@@ -45,8 +45,13 @@ public class FroggyJump extends Scene
                         PLATFORM_HEIGHT);
                 platform.anchor(numPlatforms * (j + 1) * i * Random.range(),
                     (double) i * 4);
+                // Wir färben die Plattformen dieser Methode anders, damit wir
+                // sie von Plattformen der Methode makePlatforms() unterscheiden
+                // können.
+                platform.color("grey");
                 add(platform);
             }
+
             if (i > 3)
             {
                 for (int j = 0; j < Random.range(3); j++)
