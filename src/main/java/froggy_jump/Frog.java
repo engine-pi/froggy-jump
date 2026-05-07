@@ -25,6 +25,11 @@ class Frog extends Image implements FrameListener
         this.jumpEnabled = jumpEnabled;
     }
 
+    public void kill()
+    {
+        Controller.transitionToScene(new DeathScene());
+    }
+
     @Override
     public void onFrame(double pastTime)
     {
