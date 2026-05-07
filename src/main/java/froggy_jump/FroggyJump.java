@@ -22,9 +22,9 @@ public class FroggyJump extends Scene
         makePlatforms(10);
     }
 
-    private void makePlatforms(int heightLevel)
+    private void makePlatforms(int count)
     {
-        for (int i = 0; i < heightLevel; i++)
+        for (int i = 0; i < count; i++)
         {
             Platform platform = new Platform(5, PLATFORM_HEIGHT);
             platform.anchor(0, (double) i * 4);
