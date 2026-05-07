@@ -5,7 +5,6 @@ import java.awt.event.KeyEvent;
 import pi.Controller;
 import pi.actor.Image;
 import pi.event.FrameListener;
-import pi.graphics.geom.Vector;
 
 class Frog extends Image implements FrameListener
 {
@@ -34,36 +33,38 @@ class Frog extends Image implements FrameListener
     @Override
     public void onFrame(double pastTime)
     {
-        Vector velocity = velocity();
-        // A: Die Blickrichtung des Frosches steuern
-        flippedHorizontally(velocity.x() < 0);
-        // B: Horizontale Bewegung steuern
+        // Die Blickrichtung des Frosches steuern
+        flippedHorizontally(velocityX() < 0);
+
+        // Die horizontale Bewegung steuern
         if (Controller.isKeyPressed(KeyEvent.VK_A))
         {
-            if (velocity.x() > 0)
+            if (velocityX() > 0)
             {
-                velocity(new Vector(0, velocity.y()));
+                velocityX(0);
             }
-            applyForce(Vector.LEFT.multiply(600));
+            applyForce(-600, 0);
         }
         else if (Controller.isKeyPressed(KeyEvent.VK_D))
         {
-            if (velocity.x() < 0)
+            if (velocityX() < 0)
             {
-                velocity(new Vector(0, velocity.y()));
+                velocityX(0);
             }
-            applyForce(Vector.RIGHT.multiply(600));
+            applyForce(600, 0);
         }
-        if (Math.abs(velocity.x()) > MAX_SPEED)
+
+        // Die horizontale Geschwindigkeit begrenzen
+        if (Math.abs(velocityX()) > MAX_SPEED)
         {
-            velocity(new Vector(MAX_SPEED * Math.signum(velocity.x()),
-                    velocity.y()));
+            velocityX(MAX_SPEED * Math.signum(velocityX()));
         }
-        // C: Wenn möglich den Frosch springen lassen
-        if (isGrounded() && velocity.y() <= 0 && jumpEnabled)
+
+        // Wenn möglich den Frosch springen lassen
+        if (isGrounded() && velocityY() <= 0 && jumpEnabled)
         {
-            velocity(new Vector(velocity.x(), 0));
-            applyImpulse(Vector.UP.multiply(180));
+            velocityY(0);
+            applyImpulse(0, 180);
         }
     }
 }
